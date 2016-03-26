@@ -8,11 +8,11 @@
 	<style type="text/css">
 		/* simply I put all css code internally here just for this single page*/
 		body {
-			width: 1280px;
-			margin: 0 auto;
+			width: 100%;
 			font: 15px/2.0 "Microsoft YaHei",SimSun,sans-serif; 
 		}
 		header, footer {
+			width: 100%;
 			height: 60px;
 			color: #fff;
 			background-color: #333;	
@@ -42,15 +42,6 @@
 			background-color: #dedede;
 			padding: 20px;
 		}
-		section.big-box > * {
-			background-color: #fff;
-			margin-bottom: 20px;
-			padding: 35px 20px 40px;
-		}
-		section.big-box > *:last-child {
-			margin-bottom: 0;
-			padding: 20px;
-		}
 		.small-text {
 			font-size: 0.8em;
 		}
@@ -61,6 +52,8 @@
 			padding: 10px;
 			text-align: center;
 			margin-bottom: 20px;
+			margin-right: 20px;
+			float: left;
 		}
 		#image-list > li img {
 			width: 100px;
@@ -93,23 +86,46 @@
 			border-right: 1px solid #dbdbdb;
 			border-bottom: 1px solid #ccc;
 		}
-		section.big-box aside h2 {
+	
+		aside#right-column {
+			background-color: #fff;
+			border: 1px solid #999;
+			box-sizing: border-box;
+			width: 364px; 
+			float: right;
+			padding: 20px;
+		}
+		div#center-column {
+			margin-right: 384px;
+		}
+		
+		aside#right-column h2 {
 			border-left: 3px solid #ccc;
 			padding-left: 10px;
 		}
-		section.big-box aside form {
-			width: 640px;
+		aside#right-column form {
+			width: 100%;
 			margin: 0 auto;
 		}
+		
+		div#center-column > * {
+			background-color: #fff;
+			margin-bottom: 20px;
+			padding: 35px 20px 40px;
+		}
+		div#center-column > *:last-child {
+			margin-bottom: 0;
+		}
+		
 		span.form-field-title {
 			display: inline-block;
-			width: 160px;
+			width: 105px;
 			text-align: right;
 			margin-right: 20px;
 			vertical-align: top;
 		}
 		span.form-field-tip {
-			margin-left: 180px;
+			margin-left: 130px;
 			color: #ccc;
 		}
 		button.submit-button {
@@ -120,6 +136,12 @@
 			border-radius: 10px;
 			font-weight: bold;
 		}
+		
+		aside#right-column form textarea {
+			width: 190px; 
+			height: 100px; 
+		}
+		
 	</style>
 </head>
 
@@ -136,6 +158,55 @@
 		</nav>
 	</header>
 	<section class="big-box">
+		
+		<aside id="right-column"> <!--固定宽度的右栏-->
+			<h2>这里以后是个侧栏，这里是侧栏标题</h2>
+			<form action="reg.do" method="post">
+				<label><span class="form-field-title">请输入邮箱地址</span>
+					<input type="text" name="email" placeholder="常用email地址"/>
+				</label>
+				<br /><span class="form-field-tip">邮箱地址请按格式输入</span>
+				<br />
+				<label><span class="form-field-title">请输入密码</span>
+					<input type="password" name="pwd" value="123456" />
+				</label>
+				<br />
+				<label><span class="form-field-title">请重复输入密码</span>
+					<input type="password" value="123456" />
+				</label>
+				<br /><span class="form-field-tip">密码请为6-16位英文数字</span>
+				<br />
+				<div><span class="form-field-title">性别</span>
+				<label>
+					<input type="radio" name="gender" value="m" />男</label>
+				<label>
+					<input type="radio" name="gender" value="f" checked />女</label>
+				</div>
+				<label><span class="form-field-title">城市</span>
+					<select name="city">
+						<option value="beijing" selected>北京</option>
+						<option value="shanghai">上海</option>
+						<option value="guangzhou">广州</option>
+					</select>
+				</label>
+				<br />
+				<div><span class="form-field-title">爱好</span>
+				<label>
+					<input type="checkbox" name="interest" value="sport" />运动</label>
+				<label>
+					<input type="checkbox" name="interest" value="art" checked />艺术</label>
+				<label>
+					<input type="checkbox" name="interest" value="sci" />科学</label>
+				</div>
+				<label><span class="form-field-title">个人描述</span>
+					<textarea name="desc" placeholder="请一句话对你自己进行描述" rows="5" cols="60"></textarea>
+				</label>
+				<br />
+				<button class="submit-button" type="submit">确认提交</button>
+			</form>
+		</aside>
+		
+		<div id="center-column"> <!--自适应宽度的中栏-->
 		<article>
 			<h2>文章一级标题</h2>
 			<h3>文章二级标题</h3>
@@ -179,7 +250,7 @@
 		</article>
 		<article>
 			<h2>图片</h2>
-			<ul id="image-list" style="list-style-type:none;">
+			<ul id="image-list" style="list-style-type:none;" class="clearfix">
 				<li>
 					<p>好看的图片</p><img src="images/test.png" alt="one nice image here"
 					/></li>
@@ -275,52 +346,8 @@
 				</tfoot>	
 			</table>
 		</article>
-		<aside>
-			<h2>这里以后是个侧栏，这里是侧栏标题</h2>
-			<form action="reg.do" method="post">
-				<label><span class="form-field-title">请输入邮箱地址</span>
-					<input type="text" name="email" placeholder="常用email地址"/>
-				</label>
-				<br /><span class="form-field-tip">邮箱地址请按格式输入</span>
-				<br />
-				<label><span class="form-field-title">请输入密码</span>
-					<input type="password" name="pwd" value="123456" />
-				</label>
-				<br />
-				<label><span class="form-field-title">请重复输入密码</span>
-					<input type="password" value="123456" />
-				</label>
-				<br /><span class="form-field-tip">密码请为6-16位英文数字</span>
-				<br />
-				<div><span class="form-field-title">性别</span>
-				<label>
-					<input type="radio" name="gender" value="m" />男</label>
-				<label>
-					<input type="radio" name="gender" value="f" checked />女</label>
-				</div>
-				<label><span class="form-field-title">城市</span>
-					<select name="city">
-						<option value="beijing" selected>北京</option>
-						<option value="shanghai">上海</option>
-						<option value="guangzhou">广州</option>
-					</select>
-				</label>
-				<br />
-				<div><span class="form-field-title">爱好</span>
-				<label>
-					<input type="checkbox" name="interest" value="sport" />运动</label>
-				<label>
-					<input type="checkbox" name="interest" value="art" checked />艺术</label>
-				<label>
-					<input type="checkbox" name="interest" value="sci" />科学</label>
-				</div>
-				<label><span class="form-field-title">个人描述</span>
-					<textarea name="desc" placeholder="请一句话对你自己进行描述" rows="5" cols="60"></textarea>
-				</label>
-				<br />
-				<button class="submit-button" type="submit">确认提交</button>
-			</form>
-		</aside>
+		</div>
+		
 	</section>
 	<footer>
 		<p>版权所有&copy; by the team js高手之路</p>
