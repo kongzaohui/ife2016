@@ -38,9 +38,7 @@ var aqiData = [
   aqiData.filter(function(element){return element[1] > 60;})
          .sort(function (d1,d2){ return d2[1] - d1[1]; })
          .forEach(function (element,index){
-    if(element[1] > 60){    //find a needed city
-      contentStr += "<li>第" + chineseNumbers[index] + "名：" + element[0] + "，" + element[1] + "</li>";
-    }    
+    contentStr += "<li>第" + chineseNumbers[index] + "名：" + element[0] + "，" + element[1] + "</li>";    
   });
   
   document.getElementById("aqi-list").innerHTML = contentStr;
