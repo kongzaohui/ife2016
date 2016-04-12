@@ -22,7 +22,10 @@ function addAqiData() {
   
   //if both ok, then insert or update a record in the aqiData map
   aqiData[city] = score;
-  console.log(aqiData);  
+  console.log(aqiData); 
+  
+  //do not forget to clear the correct input and its tips
+  clearInput();
 }
 
 function validateCityInput() {
@@ -55,6 +58,13 @@ function validateScoreInput() {
   }
 }
 
+function clearInput(){
+  $("aqi-city-input").value = "";
+  $("aqi-score-input").value = "";
+  $("city-input-error").innerHTML = "";
+  $("score-input-error").innerHTML = "";
+}
+
 /**
  * 渲染aqi-table表格
  */
@@ -71,8 +81,8 @@ function renderAqiList() {
   $("aqi-table").innerHTML = contentStr;  
   
   // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
-  var btnList = document.querySelectorAll("#aqi-table tbody tr td button");
-  console.log(btnList);
+  var btnList = $("aqi-table").querySelectorAll("tbody tr td button");
+  //console.log(btnList);
   for(var i=0;i<btnList.length;i++){
     btnList[i].addEventListener("click",delBtnHandle);
   }
