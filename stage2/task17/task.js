@@ -57,7 +57,7 @@ var chartInfo = {
   axis_y_size: "600px",
   max_aqi: 500,                   //已有数据中aqi数值可能的最大值
   max_aqi_height_radio: 0.8,       //aqi数值可能的最大值对应显示的柱状图高度占Y轴高度的百分比，当前配置中意味着500大小的aqi柱状图高度为480px
-  colors: ["#f00","#0f0","#00f","0ff","f0f","ff0"],
+  colors: ["#f00","#0f0","#00f","#0ff","#f0f","#ff0"],
   
   randomColor: function(){return this.colors[Math.floor(Math.random() * this.colors.length)];}   
 }
