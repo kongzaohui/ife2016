@@ -65,7 +65,6 @@
       return Number(input);
     }
   }
-
   
   function addToQueue(rightDir){   
     var num = validateInput();
@@ -77,8 +76,7 @@
       array.unshift(num);
     }
     updateArrayView();
-  }
-  
+  }  
     
   function deleteFromQueue(rightDir){
     if(array.length===0){ alert("the queue is empty, no number can be out"); return; }
@@ -96,8 +94,7 @@
       array.push(Math.floor(91*Math.random()+10));             
     }
     updateArrayView();
-  }
-  
+  } 
   
   var swapPositionQueue = [];
   
@@ -196,30 +193,16 @@ var helper = {
     spanj.style.top = "100%";
     
     //step2: wait a while, swap the two's position
-         var temp = spani.style.left;
-      spani.style.left = spanj.style.left;
-      spanj.style.left = temp;
+    var temp = spani.style.left;
+    spani.style.left = spanj.style.left;
+    spanj.style.left = temp;
       
-              
-              spani.style.top = "";
-        spanj.style.top = "";
-        spani.style.bottom = "0";
-        spanj.style.bottom = "0";
-        
-        
-    /*    
       
-    setTimeout(function(){
-
-      
-      //step3: wait a while, make the two stand back into the queue and complete the final swap
-      setTimeout(function(){
-
-      }, 2000);
-      
-    }, 2000);   
-    
-    */ 
+    //step3: wait a while, make the two stand back into the queue and complete the final swap          
+    spani.style.top = "";
+    spanj.style.top = "";
+    spani.style.bottom = "0";
+    spanj.style.bottom = "0";
     
   }
   
