@@ -142,7 +142,7 @@
   
   var hobbyTextarea = $("hobby-textarea");
   $("hobby-confirm-button").addEventListener("click", function(event){
-    hobbyTextarea.value.split(/[,，　、\r\n\t]/).filter(function(e){ return (e!=="")&&(!hobbyList.contains(e));}).forEach(function(e){
+    hobbyTextarea.value.split(/[,， 　、\r\n\t]/).filter(function(e){ return (e!=="")&&(!hobbyList.contains(e));}).forEach(function(e){
       
       addItemToViewAndPushToItsFixedSizeQueue(e, $("hobby-container"), hobbyList);
     });
